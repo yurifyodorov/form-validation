@@ -83,10 +83,17 @@ class Textbox extends React.Component {
 
 		return (
 			<FormGroup className='form__row'>
+				<div className='form__rules'>
+					<Rules
+						conditions={conditions}
+						validate={this.validate}
+						focused={this.state.focused}
+					/>
+				</div>
 				<ControlLabel className={
 					`textbox ${focused || value ? 'textbox_active' : ''} ${valid ? 'textbox_valid' : ''}`
 				}>
-					<span className='textbox__label'>{ label }</span>
+					<span className='textbox__label'>{label}</span>
 					<InputGroup style={styles}>
 						<InputGroup.Addon>
 							<Icon icon={icon} />
@@ -98,17 +105,10 @@ class Textbox extends React.Component {
 							className='icon__checkmark'
 							viewBox="0 0 32 32"
 							xmlns="http://www.w3.org/2000/svg">
-						  <path d="M 3.507 16.935 L 13.68 25.589 L 28.493 6.411"/>
+							<path d="M 3.507 16.935 L 13.68 25.589 L 28.493 6.411" />
 						</svg>
 					</span>
 				</ControlLabel>
-				<div className='form__rules'>
-					<Rules
-						conditions={ conditions }
-						validate={ this.validate }
-						focused={ this.state.focused }
-					/>
-				</div>
 			</FormGroup>
 		);
 	};
@@ -127,9 +127,9 @@ const Rules = ({ conditions, validate, focused }) => (
 );
 
 const Submit = ({ valid }) => (
-	<Button 
-		valid={valid} disabled={!valid} 
-		appearance="primary" 
+	<Button
+		valid={valid} disabled={!valid}
+		appearance="primary"
 		type="submit"
 	>
 		Отправить
@@ -193,14 +193,20 @@ class RSForm extends React.Component {
 
 
 				<ButtonToolbar className='form__submit'>
-					<Submit valid={ valid }/>
+					<Submit valid={valid} />
 					<div
 						className={`form__success ${submitted ? 'form__success_is-active' : ''}`}
 						role='alert'
 					>
-						Успех!
+						Выполняется вход
 					</div>
 				</ButtonToolbar>
+				<Button
+					appearance="link"
+					onClick={this.open}
+				>
+					Техподдержка
+					</Button>
 			</form>
 		);
 	}
