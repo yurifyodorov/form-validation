@@ -13,9 +13,30 @@ body {
 	color: #372717;
 }
 
+.App {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+	justify-items: center;
+	grid-gap: 50px;
+	width: 100vw;
+	min-height: 100vh;
+	background-color: #F2FBFE;
+
+	.form:nth-child(1) {
+		justify-self: end;
+	}
+
+	.form:nth-child(2) {
+		justify-self: start;
+	}
+}
+
 	
 .form {
-	background-color: #fff;
+	width: 288px;
+	height: 380px;
+	background-color: #FFFFFF;
 	box-shadow: 0 35px 65px rgba(51,51,51,.25);
 	padding-top: 8px;
 	padding-bottom: 75px;

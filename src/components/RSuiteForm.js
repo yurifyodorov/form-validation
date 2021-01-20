@@ -1,7 +1,5 @@
 import React from 'react';
-import './App.scss';
-
-import RSuiteForm from './components/RSuiteForm'
+import './RSuiteForm.scss';
 
 class Textbox extends React.Component {
 	constructor(props) {
@@ -237,14 +235,11 @@ const inputs = [
 	}
 ];
 
-function App() {
+function RSuiteForm() {
 	
   return (
-    <div className="App">
-		<Form inputs={ inputs } />
-		<RSuiteForm inputs={ inputs } />
-    </div>
+	<Form inputs={ inputs } />
   );
 }
 
-export default App;
+export default RSuiteForm;
