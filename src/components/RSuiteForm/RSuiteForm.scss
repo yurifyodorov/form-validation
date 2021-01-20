@@ -10,7 +10,7 @@ $lBrown: lighten(#827262, 38%);
 	padding: 40px 20px;
 	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.12), 0 0 10px rgba(0, 0, 0, 0.06);
 	border-radius: 6px;
-
+	
 	// Input icon background
 	.rs-input-group-addon {
 		display: flex;
@@ -38,6 +38,10 @@ $lBrown: lighten(#827262, 38%);
 
 	.textbox_valid > .rs-input-group {
 		border: 1px solid yellowgreen;
+	}
+
+	.textbox_valid .info-btn {
+		display: none;
 	}
 
 	.rs-btn.rs-btn-primary {

@@ -12,7 +12,6 @@ function App() {
     <div className="App">
 		<DefaultForm />
     <div>
-      <h2>Rsuite Form</h2>  
     <RSuiteForm />
     </div>
 		

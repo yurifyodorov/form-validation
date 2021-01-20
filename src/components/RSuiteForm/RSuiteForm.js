@@ -8,8 +8,10 @@ import {
 	Input,
 	InputGroup,
 	Icon,
+	IconButton,
 	Button,
-	ButtonToolbar
+	ButtonToolbar,
+	Modal
 } from 'rsuite'
 
 import './RSuiteForm.scss';
@@ -21,12 +23,25 @@ class Textbox extends React.Component {
 		this.state = {
 			value: '',
 			focused: false,
-			valid: false
+			valid: false,
+			show: false
 		};
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleFocus = this.handleFocus.bind(this);
 		this.validate = this.validate.bind(this);
+
+		// modal
+		this.close = this.close.bind(this);
+		this.open = this.open.bind(this);
+	}
+
+	close() {
+		this.setState({ show: false });
+	}
+
+	open() {
+		this.setState({ show: true });
 	}
 
 	componentDidMount() {
@@ -82,34 +97,49 @@ class Textbox extends React.Component {
 		}
 
 		return (
-			<FormGroup className='form__row'>
-				<div className='form__rules'>
-					<Rules
-						conditions={conditions}
-						validate={this.validate}
-						focused={this.state.focused}
-					/>
-				</div>
-				<ControlLabel className={
-					`textbox ${focused || value ? 'textbox_active' : ''} ${valid ? 'textbox_valid' : ''}`
-				}>
-					<span className='textbox__label'>{label}</span>
-					<InputGroup style={styles}>
-						<InputGroup.Addon>
-							<Icon icon={icon} />
-						</InputGroup.Addon>
-						<input {...inputProps} className='rs-input textbox__input' />
-					</InputGroup>
-					<span className='icon'>
-						<svg
-							className='icon__checkmark'
-							viewBox="0 0 32 32"
-							xmlns="http://www.w3.org/2000/svg">
-							<path d="M 3.507 16.935 L 13.68 25.589 L 28.493 6.411" />
-						</svg>
-					</span>
-				</ControlLabel>
-			</FormGroup>
+			<>
+				<FormGroup className='form__row'>
+					<ControlLabel className={
+						`textbox ${focused || value ? 'textbox_active' : ''} ${valid ? 'textbox_valid' : ''}`
+					}>
+						<span className='textbox__label'>{label}</span>
+						<InputGroup style={styles}>
+							<InputGroup.Addon>
+								<Icon icon={icon} />
+							</InputGroup.Addon>
+							<input {...inputProps} className='rs-input textbox__input' />
+							<ButtonToolbar>
+								<IconButton size='xs' className='info-btn' onClick={this.open} icon={<Icon icon="info" />} color="blue" circle />
+							</ButtonToolbar>
+						</InputGroup>
+						<span className='icon'>
+							<svg
+								className='icon__checkmark'
+								viewBox="0 0 32 32"
+								xmlns="http://www.w3.org/2000/svg">
+								<path d="M 3.507 16.935 L 13.68 25.589 L 28.493 6.411" />
+							</svg>
+						</span>
+					</ControlLabel>
+				</FormGroup>
+
+				<Modal size='xs' show={this.state.show} onHide={this.close}>
+					<Modal.Body>
+						<div className='form__rules'>
+							<Rules
+								conditions={conditions}
+								validate={this.validate}
+								focused={this.state.focused}
+							/>
+						</div>
+					</Modal.Body>
+					<Modal.Footer>
+						<Button onClick={this.close} appearance="primary">
+							Понятно
+						</Button>
+					</Modal.Footer>
+				</Modal>
+			</>
 		);
 	};
 }

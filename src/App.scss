@@ -1,12 +1,12 @@
-$brown: #9E8870;
-$lightBrown: #F0E3DB;
+$brown: #9e8870;
+$lightBrown: #f0e3db;
 $lBrown: lighten(#827262, 38%);
 
 body {
-	background-color: #FCFCFC;
+	background-color: #fcfcfc;
 	min-height: 100vh;
 	font-size: 16px;
-	font-family: 'Montserrat', sans-serif;
+	font-family: "Montserrat", sans-serif;
 	color: #372717;
 }
 
@@ -17,7 +17,7 @@ body {
 	grid-gap: 20px;
 	width: 100vw;
 	min-height: 100vh;
-	background-color: #F2FBFE;
+	background-color: #f2fbfe;
 
 	.form:nth-child(1) {
 		justify-self: end;
@@ -26,20 +26,15 @@ body {
 	.form:nth-child(2) {
 		justify-self: start;
 	}
-
-	h2 {
-		text-align: center;
-		margin-bottom: 20px;
-	}
 }
 
 .form {
-	background-color: #FFFFFF;
+	background-color: #ffffff;
 	padding-top: 8px;
 	padding-bottom: 75px;
 	text-align: center;
 	position: relative;
-	
+
 	&__title {
 		font-size: 32px;
 		margin-bottom: 55px;
@@ -53,61 +48,52 @@ body {
 		margin-bottom: 55px;
 	}
 
-		
 	&__rules {
-		position: relative;
-		background: green;
-		width: 100%;
-		margin-bottom: 5px;
+		// position: relative;
+		// background: green;
+		// width: 100%;
+		// margin-bottom: 5px;
 	}
 
-		
 	&__submit {
 		overflow: hidden;
 	}
 
-		
 	&__success {
 		color: #85c96a;
 		z-index: 2;
 		transform: translateY(100%);
-		opacity: .1;
-		
+		opacity: 0.1;
+
 		&_is-active {
 			transform: translateY(0);
 			opacity: 1;
-			
+
 			& .icon__checkmark {
 				stroke-dashoffset: 0;
 			}
-				
 		}
 
-		
 		.icon {
 			display: inline-block;
 			vertical-align: middle;
 			margin-left: 8px;
 			margin-bottom: -2px;
-			
+
 			&__checkmark {
-				transition-delay: .75s;
+				transition-delay: 0.75s;
 				height: 21px;
 				width: 21px;
 				stroke: #fff;
 			}
-
 		}
-
 	}
-
 }
-	
-		
-.form__success, .button {
+
+.form__success,
+.button {
 	line-height: 47px;
 }
-
 
 .button {
 	transform: translateY(0);
@@ -117,27 +103,23 @@ body {
 	padding: 0;
 	cursor: pointer;
 	z-index: 1;
-	
+
 	&:hover {
 		color: #403830;
 	}
-		
-	
+
 	&:focus,
 	&:active {
 		outline: none;
 		color: #403830;
 	}
 
-
 	&[disabled] {
 		cursor: default;
 		transform: translateY(100%);
-		opacity: .1;
+		opacity: 0.1;
 	}
-
 }
-
 
 .textbox {
 	position: relative;
@@ -149,11 +131,10 @@ body {
 		font-size: 17px;
 		user-select: none;
 		z-index: 1;
-		transition: all .25s ease;
+		transition: all 0.25s ease;
 		transform: translateZ(0);
 	}
 
-		
 	&__input {
 		background: none;
 		border: none;
@@ -163,70 +144,54 @@ body {
 		padding-right: 25px;
 		position: relative;
 		z-index: 2;
-		
+
 		&:focus {
 			outline: none;
 		}
-			
 	}
 
-
 	&_active &__label {
-		transform: translateY(-30px) scale(.83);
+		transform: translateY(-30px) scale(0.83);
 		transform-origin: left;
 		color: $brown;
 	}
 
-		
 	.icon {
 		position: absolute;
 		right: 0;
 		top: 0;
-		
+
 		&__checkmark {
 			height: 20px;
 			width: 20px;
 			stroke: #85c96a;
 		}
-
 	}
 
-		
 	&_valid .icon__checkmark {
 		stroke-dashoffset: 0;
 	}
-		
 }
 
-		
 .rules {
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	width: 246px;
-	// transform: translate3d(0, -50%, 0px);
+	width: 100%;
 	list-style: none;
+	padding-inline-start: 0;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	background-color: yellow;
-	padding: 15px;
-	margin: 0;
-	opacity: 1;
-	transition: all .2s ease-in;
-	z-index: 99;
-	
-	&_is-hidden { display: none; }
 
-		
+	// &_is-hidden { display: none; }
+
 	&__item {
 		position: relative;
-		transition: opacity .2s;
+		transition: opacity 0.2s;
 		// white-space: nowrap;
 		color: #827262;
 		transform: translateZ(0);
 		line-height: 1.6;
 		text-align: left;
+		font-size: 13px;
 
 		// &:before {
 		// 	content: '';
@@ -242,29 +207,73 @@ body {
 		// 	background-color: darken($lBrown, 25%);
 		// 	transition: transform .34s ease-in-out;
 		// }
-
 	}
 
-			
 	&__item_passed {
-		opacity: .55;
-		
+		opacity: 0.55;
+
 		&:before {
 			transform: scaleX(1);
 		}
-			
 	}
-
 }
 
-			
 .icon {
 	&__checkmark {
 		fill: none;
 		stroke-width: 5;
 		stroke-dasharray: 40;
 		stroke-dashoffset: 40;
-		transition: stroke-dashoffset .3s linear;
+		transition: stroke-dashoffset 0.3s linear;
+	}
+}
+
+.rs-modal-wrapper {
+	text-align: center;
+	width: 100%;
+
+	.rs-modal {
+		height: 100vh;
+		width: 100vw;
+		margin: 0;
+
+		.rs-modal-dialog {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			height: inherit;
+			width: inherit;
+		}
+
 	}
 
+}
+
+.rs-modal-content {
+	width: 288px;
+	background: white;
+
+	.rs-modal-body {
+		margin-top: 0;
+	}
+}
+
+// input info button
+.rs-btn-toolbar {
+	margin-right: 10px;
+	line-height: 47px;
+
+	.rs-btn-icon-circle {
+		color: #cdcdce;
+		background: transparent;
+		z-index: 99;
+
+		.rs-icon {
+			width: 25px;
+			height: 25px;
+			font-size: 20px;
+			line-height: normal;
+		}
+	}
 }
