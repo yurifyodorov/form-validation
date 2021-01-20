@@ -1,5 +1,5 @@
 import React from 'react';
-import './RSuiteForm.scss';
+import './DefaultForm.scss';
 
 class Textbox extends React.Component {
 	constructor(props) {
@@ -155,7 +155,7 @@ class Form extends React.Component {
 
 		return (
 			<form 
-				className={`form ${valid ? 'form_valid' : ''}`}
+				className={`form form-default ${valid ? 'form_valid' : ''}`}
 				onSubmit={this.submitForm}>
 				<h1 className='form__title'>Sign up</h1>
 				{inputs.map((props, index) => (
@@ -235,11 +235,11 @@ const inputs = [
 	}
 ];
 
-function RSuiteForm() {
+function DefaultForm() {
 	
   return (
 	<Form inputs={ inputs } />
   );
 }
 
-export default RSuiteForm;
+export default DefaultForm;
