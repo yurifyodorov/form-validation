@@ -2,14 +2,113 @@ $brown: #9E8870;
 $lightBrown: #F0E3DB;
 $lBrown: lighten(#827262, 38%);
 
+// RSCSS
+// see more: https://rscss.io/index.html
+
 // RSuite form style
-.form-rsuite {
-	background: #FFFFFF;
+.auth-form {
+	background-color: #ffffff;
 	width: 288px;
-	height: 380px;
-	padding: 40px 20px;
+	height: 420px;
+	padding: 20px;
 	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.12), 0 0 10px rgba(0, 0, 0, 0.06);
 	border-radius: 6px;
+	text-align: center;
+
+	> .title {
+		font-size: 24px;
+		color: #3498ff;
+	}
+
+	> .field  {
+		position: relative;
+		height: 47px;
+
+		> .label {
+			position: absolute;
+			left: 50px;
+			bottom: 9px;
+			font-size: 17px;
+			user-select: none;
+			z-index: 1;
+			transition: all 0.25s ease;
+			transform: translateZ(0);
+			z-index: 2;
+		}
+
+		> .input {
+			height: inherit;
+
+			> input { z-index: 1; }
+			> input[type=text] { color: black; }
+			> input[type=email] { color: black; }
+		}
+
+		> .icon {
+			position: absolute;
+			top: -10px;
+			right: -4px;
+			border-radius: 50%;
+			font-size: 20px;
+			z-index: 99;
+			margin: 0;
+			background: pink;
+
+			.rs-icon {
+				padding: 0;
+				color: #2196f3;
+			}
+		}
+
+		> .icon.-info { 
+			visibility: visible; 
+			cursor: pointer;
+		}
+
+		> .icon.-success { visibility: hidden; }
+
+		&.-active {
+
+			> .label {
+				left: 0;
+				transform: translateY(-30px) scale(0.83);
+				transform-origin: left;
+				color: $brown;
+				line-height: 40px;
+			}
+		}
+
+		// show icons when this state
+		&.-valid,
+		&.-error {
+			> .icon.-info { visibility: hidden; }
+		}
+
+		// valid state
+		&.-valid {
+
+			> .input {
+				border-color: green;
+
+				> input[type=text] { color: green; }
+				> input[type=email] { color: green; }
+			}
+			
+			> .icon.-success { 
+				visibility: visible;
+				color: green;
+			}
+		}
+
+		// error state
+		&.-error {
+			> .icon.-error { color: red; }
+		}
+	}
+
+
+
+
 	
 	// Input icon background
 	.rs-input-group-addon {
@@ -20,37 +119,6 @@ $lBrown: lighten(#827262, 38%);
 
 	.rs-form-group {
 		padding: 0;
-	}
-
-	.textbox .icon {
-		top: 12px;
-		right: 15px;
-	}
-
-	.textbox > .textbox__label {
-		left: 50px;
-	}
-
-	.textbox.textbox_active > .textbox__label {
-		left: 0;
-		margin-bottom: 5px;
-	}
-
-	.textbox_valid > .rs-input-group {
-		border: 1px solid yellowgreen;
-	}
-
-	.textbox_valid .info-btn {
-		display: none;
-	}
-
-	.rs-btn.rs-btn-primary {
-		width: 100%;
-		height: 47px;
-	}
-
-	.rs-btn-toolbar > :not(:first-child):not(.rs-btn-block) {
-		margin-left: 0;
 	}
 
 
@@ -69,13 +137,5 @@ $lBrown: lighten(#827262, 38%);
 			border-radius: 6px;
 		}
 	}
-
-	// .form__rules {
-	// 	width: 20px;
-
-	// 	.rules {
-	// 		left: 0;
-	// 	}
-	// }
 
 }

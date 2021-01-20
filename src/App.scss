@@ -4,7 +4,6 @@ $lBrown: lighten(#827262, 38%);
 
 body {
 	background-color: #fcfcfc;
-	min-height: 100vh;
 	font-size: 16px;
 	font-family: "Montserrat", sans-serif;
 	color: #372717;
@@ -12,48 +11,16 @@ body {
 
 .App {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	grid-gap: 20px;
 	width: 100vw;
-	min-height: 100vh;
+	height: 100vh;
 	background-color: #f2fbfe;
-
-	.form:nth-child(1) {
-		justify-self: end;
-	}
-
-	.form:nth-child(2) {
-		justify-self: start;
-	}
 }
 
 .form {
-	background-color: #ffffff;
-	padding-top: 8px;
-	padding-bottom: 75px;
-	text-align: center;
-	position: relative;
-
-	&__title {
-		font-size: 32px;
-		margin-bottom: 55px;
-	}
-
-	&__row {
-		position: relative;
-		display: flex;
-		flex-direction: column;
-		padding: 0 50px;
-		margin-bottom: 55px;
-	}
-
-	&__rules {
-		// position: relative;
-		// background: green;
-		// width: 100%;
-		// margin-bottom: 5px;
-	}
 
 	&__submit {
 		overflow: hidden;
@@ -69,7 +36,7 @@ body {
 			transform: translateY(0);
 			opacity: 1;
 
-			& .icon__checkmark {
+			& .icon__success {
 				stroke-dashoffset: 0;
 			}
 		}
@@ -79,8 +46,9 @@ body {
 			vertical-align: middle;
 			margin-left: 8px;
 			margin-bottom: -2px;
+			background: green;
 
-			&__checkmark {
+			&__success {
 				transition-delay: 0.75s;
 				height: 21px;
 				width: 21px;
@@ -118,58 +86,6 @@ body {
 		cursor: default;
 		transform: translateY(100%);
 		opacity: 0.1;
-	}
-}
-
-.textbox {
-	position: relative;
-
-	&__label {
-		position: absolute;
-		left: 0;
-		bottom: 15px;
-		font-size: 17px;
-		user-select: none;
-		z-index: 1;
-		transition: all 0.25s ease;
-		transform: translateZ(0);
-	}
-
-	&__input {
-		background: none;
-		border: none;
-		border-bottom: 2px solid $lightBrown;
-		font-size: 20px;
-		padding-bottom: 12px;
-		padding-right: 25px;
-		position: relative;
-		z-index: 2;
-
-		&:focus {
-			outline: none;
-		}
-	}
-
-	&_active &__label {
-		transform: translateY(-30px) scale(0.83);
-		transform-origin: left;
-		color: $brown;
-	}
-
-	.icon {
-		position: absolute;
-		right: 0;
-		top: 0;
-
-		&__checkmark {
-			height: 20px;
-			width: 20px;
-			stroke: #85c96a;
-		}
-	}
-
-	&_valid .icon__checkmark {
-		stroke-dashoffset: 0;
 	}
 }
 
@@ -219,7 +135,7 @@ body {
 }
 
 .icon {
-	&__checkmark {
+	&__success {
 		fill: none;
 		stroke-width: 5;
 		stroke-dasharray: 40;

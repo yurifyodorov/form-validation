@@ -9,6 +9,7 @@ import {
 	InputGroup,
 	Icon,
 	IconButton,
+	Tag,
 	Button,
 	ButtonToolbar,
 	Modal
@@ -78,6 +79,7 @@ class Textbox extends React.Component {
 		const { label, icon, conditions, type = 'text', index } = this.props;
 		const { focused, value, valid } = this.state;
 
+		// RSuite inline style
 		const styles = {
 			width: 246
 		};
@@ -86,7 +88,7 @@ class Textbox extends React.Component {
 			onChange: this.handleChange,
 			onFocus: this.handleFocus.bind(null, true),
 			onBlur: this.handleFocus.bind(null, false),
-			className: 'textbox__input',
+			// className: 'textbox__input',
 			type: type
 		};
 
@@ -98,29 +100,38 @@ class Textbox extends React.Component {
 
 		return (
 			<>
-				<FormGroup className='form__row'>
-					<ControlLabel className={
-						`textbox ${focused || value ? 'textbox_active' : ''} ${valid ? 'textbox_valid' : ''}`
-					}>
-						<span className='textbox__label'>{label}</span>
-						<InputGroup style={styles}>
-							<InputGroup.Addon>
-								<Icon icon={icon} />
-							</InputGroup.Addon>
-							<input {...inputProps} className='rs-input textbox__input' />
-							<ButtonToolbar>
-								<IconButton size='xs' className='info-btn' onClick={this.open} icon={<Icon icon="info" />} color="blue" circle />
-							</ButtonToolbar>
-						</InputGroup>
-						<span className='icon'>
-							<svg
-								className='icon__checkmark'
-								viewBox="0 0 32 32"
-								xmlns="http://www.w3.org/2000/svg">
-								<path d="M 3.507 16.935 L 13.68 25.589 L 28.493 6.411" />
-							</svg>
-						</span>
+				<FormGroup className={
+					`field ${focused || value ? '-active' : ''} ${valid ? '-valid' : ''}`
+				}>
+					<ControlLabel className='label'>
+						{label}
 					</ControlLabel>
+					<InputGroup className='input' style={styles}>
+						<InputGroup.Addon>
+							<Icon icon={icon} />
+						</InputGroup.Addon>
+						<input {...inputProps} className='rs-input textbox__input' />
+					</InputGroup>
+
+					<IconButton
+						size='xs'
+						className='icon -info' 
+						onClick={this.open} 
+						icon={<Icon icon="info" />} 
+						color='blue' 
+						circle 
+					/>
+
+					<IconButton
+						size='xs'
+						className='icon -success'
+						icon={<Icon icon="check-circle" />}
+						color='green'
+						circle 
+					/>
+
+					
+				
 				</FormGroup>
 
 				<Modal size='xs' show={this.state.show} onHide={this.close}>
@@ -209,8 +220,10 @@ class RSForm extends React.Component {
 		return (
 			// rs-form form form-rsuite  rs-form-vertical rs-form-fixed-width
 			<form
-				className={`rs-form form form-rsuite rs-form-vertical rs-form-fixed-width ${valid ? 'form_valid' : ''}`}
+				className={`auth-form rs-form rs-form-vertical rs-form-fixed-width ${valid ? 'form_valid' : ''}`}
 				onSubmit={this.submitForm}>
+
+				<h1 className='title'>Form Title</h1>
 
 				{inputs.map((props, index) => (
 					<Textbox
