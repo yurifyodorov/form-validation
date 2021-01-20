@@ -157,7 +157,7 @@ class Form extends React.Component {
 			<form 
 				className={`form form-default ${valid ? 'form_valid' : ''}`}
 				onSubmit={this.submitForm}>
-				<h1 className='form__title'>Sign up</h1>
+				<h1 className='form__title'>Default</h1>
 				{inputs.map((props, index) => (
 					<Textbox
 						key={ index }

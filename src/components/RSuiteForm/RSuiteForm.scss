@@ -3,265 +3,45 @@ $lightBrown: #F0E3DB;
 $lBrown: lighten(#827262, 38%);
 
 // RSuite form style
-.rs-form.form-rsuite {
+.form-rsuite {
 	background: #FFFFFF;
 	width: 288px;
-	height: 380px;
+	height: 360px;
 	padding: 40px 20px;
 	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.12), 0 0 10px rgba(0, 0, 0, 0.06);
 	border-radius: 6px;
-}
 
-.form {
-	width: 330px; // 288px
-	height: 380px;
-	background-color: #FFFFFF;
-	box-shadow: 0 35px 65px rgba(51,51,51,.25);
-	padding-top: 8px;
-	padding-bottom: 75px;
-	text-align: center;
-	position: relative;
-	
-	&__title {
-		font-size: 32px;
-		margin-bottom: 55px;
-	}
-
-	&__row {
-		position: relative;
+	// Input icon background
+	.rs-input-group-addon {
 		display: flex;
-		padding: 0 50px;
-		margin-bottom: 55px;
+		justify-content: center;
+		width: 40px;
 	}
 
-		
-	&__rules {
-		position: relative;
-		flex: 1 0 auto;
-		margin-left: 20px;
+	.rs-form-group {
+		padding: 0;
 	}
 
-		
-	&__submit {
-		position: absolute;
+	.textbox .icon {
+		top: 12px;
+		right: 15px;
+	}
+
+	.textbox > .textbox__label {
+		left: 50px;
+	}
+
+	.textbox.textbox_active > .textbox__label {
+		left: 0;
+		margin-bottom: 5px;
+	}
+
+	.rs-btn.rs-btn-primary {
 		width: 100%;
-		height: 80px;
-		overflow: hidden;
-		bottom: 0;
-		left: 0;
 	}
 
-		
-	&__success {
-		background-color: #85c96a;
-		color: #fff;
-		z-index: 2;
-		transform: translateY(100%);
-		opacity: .1;
-		
-		&_is-active {
-			transform: translateY(0);
-			opacity: 1;
-			
-			& .icon__checkmark {
-				stroke-dashoffset: 0;
-			}
-				
-		}
-
-		
-		.icon {
-			display: inline-block;
-			vertical-align: middle;
-			margin-left: 8px;
-			margin-bottom: -2px;
-			
-			&__checkmark {
-				transition-delay: .75s;
-				height: 21px;
-				width: 21px;
-				stroke: #fff;
-			}
-
-		}
-
-	}
-
-}
-	
-		
-.form__success, .button {
-	height: 100%;
-	width: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	line-height: 80px;
-	transition: all .4s ease-in-out;
-	font-size: 19px;
-	font-weight: 500;
-}
-
-
-.button {
-	transform: translateY(0);
-	opacity: 1;
-	border: none;
-	background-color: #F1CF79;
-	font-family: inherit;
-	color: #827262;
-	padding: 0;
-	cursor: pointer;
-	z-index: 1;
-	
-	&:hover {
-		color: #403830;
-	}
-		
-	
-	&:focus,
-	&:active {
-		outline: none;
-		color: #403830;
-	}
-
-
-	&[disabled] {
-		cursor: default;
-		transform: translateY(100%);
-		opacity: .1;
-	}
-
-}
-
-
-.textbox {
-	position: relative;
-
-	&__label {
-		position: absolute;
-		left: 0;
-		bottom: 15px;
-		font-size: 17px;
-		user-select: none;
-		z-index: 1;
-		transition: all .25s ease;
-		transform: translateZ(0);
-	}
-
-		
-	&__input {
-		background: none;
-		border: none;
-		border-bottom: 2px solid $lightBrown;
-		font-size: 20px;
-		padding-bottom: 12px;
-		padding-right: 25px;
-		position: relative;
-		z-index: 2;
-		
-		&:focus {
-			outline: none;
-		}
-			
-	}
-
-
-	&_active &__label {
-		transform: translateY(-30px) scale(.83);
-		transform-origin: left;
-		color: $brown;
-	}
-
-		
-	.icon {
-		position: absolute;
-		right: 0;
-		top: 0;
-		
-		&__checkmark {
-			height: 20px;
-			width: 20px;
-			stroke: #85c96a;
-		}
-
-	}
-
-		
-	&_valid .icon__checkmark {
-		stroke-dashoffset: 0;
-	}
-		
-}
-
-		
-.rules {
-	position: absolute;
-	left: 0;
-	top: 50%;
-	transform: translate3d(0, -50%, 0px);
-	list-style: none;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	background-color: #F9F4E1;
-	padding: 15px;
-	margin: 0;
-	opacity: 1;
-	transition: all .2s ease-in;
-	
-	&_is-hidden {
-		opacity: 0;
-		transform: translate3d(15px, -50%, 0px);
-	}
-
-		
-	&__item {
-		position: relative;
-		transition: opacity .2s;
-		font-size: 15px;
-		white-space: nowrap;
-		color: #827262;
-		transform: translateZ(0);
-		line-height: 1.6;
-
-		&:before {
-			content: '';
-			position: absolute;
-			top: 50%;
-			left: 0;
-			right: 0;
-			width: 100%;
-			height: 1px;
-			transform: scaleX(0);
-			transform-origin: 0% 100%;
-			will-change: transform;
-			background-color: darken($lBrown, 25%);
-			transition: transform .34s ease-in-out;
-		}
-
-	}
-
-			
-	&__item_passed {
-		opacity: .55;
-		
-		&:before {
-			transform: scaleX(1);
-		}
-			
-	}
-
-}
-
-			
-.icon {
-	&__checkmark {
-		fill: none;
-		stroke-width: 5;
-		stroke-dasharray: 40;
-		stroke-dashoffset: 40;
-		transition: stroke-dashoffset .3s linear;
+	.rules {
+		left: 20px;
 	}
 
 }

@@ -11,7 +11,11 @@ function App() {
   return (
     <div className="App">
 		<DefaultForm />
-		<RSuiteForm />
+    <div>
+      <h2>Rsuite Form</h2>  
+    <RSuiteForm />
+    </div>
+		
     </div>
   );
 }
