@@ -3,8 +3,13 @@ $lightBrown: #F0E3DB;
 $lBrown: lighten(#827262, 38%);
 
 // RSuite form style
-.form.form-rsuite {
-    background-color: pink;
+.rs-form.form-rsuite {
+	background: #FFFFFF;
+	width: 288px;
+	height: 380px;
+	padding: 40px 20px;
+	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.12), 0 0 10px rgba(0, 0, 0, 0.06);
+	border-radius: 6px;
 }
 
 .form {
