@@ -1,5 +1,5 @@
-$brown: #9E8870;
-$lightBrown: #F0E3DB;
+$brown: #9e8870;
+$lightBrown: #f0e3db;
 $lBrown: lighten(#827262, 38%);
 
 // RSCSS
@@ -12,7 +12,6 @@ $lBrown: lighten(#827262, 38%);
 	height: 380px;
 	padding: 20px;
 	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.12), 0 0 10px rgba(0, 0, 0, 0.06);
-	border-radius: 6px;
 	text-align: center;
 
 	> .title {
@@ -20,7 +19,7 @@ $lBrown: lighten(#827262, 38%);
 		color: #3498ff;
 	}
 
-	> .field  {
+	> .field {
 		position: relative;
 		height: 47px;
 
@@ -38,11 +37,14 @@ $lBrown: lighten(#827262, 38%);
 
 		> .input {
 			height: inherit;
-			// background: red;
+			border-radius: 6px 6px 6px 6px;
 
 			> input { z-index: 1; }
-			> input[type=text] { color: black; }
-			> input[type=email] { color: black; }
+			> input[type=text],
+			> input[type=email] {
+				color: black;
+				background: transparent;
+			}
 
 			// Input icon background
 			> .rs-input-group-addon {
@@ -61,6 +63,7 @@ $lBrown: lighten(#827262, 38%);
 			border-radius: 50%;
 			z-index: 99;
 			margin: 0;
+			border: 1px solid transparent;
 
 			.rs-icon {
 				width: inherit;
@@ -71,19 +74,23 @@ $lBrown: lighten(#827262, 38%);
 			}
 		}
 
-		> .marker.-info { 
-			visibility: visible; 
+		> .marker.-info {
+			visibility: visible;
 			cursor: pointer;
-			
-			.rs-icon { font-size: 14px; }
+			border: 1px solid #3498ff;
+
+			.rs-icon {
+				font-size: 14px;
+			}
 		}
 
-		> .marker.-success { visibility: hidden; }
+		> .marker.-success {
+			visibility: hidden;
+		}
 
 		&.-active {
-
 			> .label {
-				left:5px;
+				left: 5px;
 				transform: translateY(-30px) scale(0.83);
 				transform-origin: left;
 				color: $brown;
@@ -94,20 +101,29 @@ $lBrown: lighten(#827262, 38%);
 		// show icons when this state
 		&.-valid,
 		&.-error {
-			> .marker.-info { visibility: hidden; }
+			> .marker.-info {
+				visibility: hidden;
+			}
+
+			> .marker.-success {
+				border: 1px solid green;
+			}
 		}
 
 		// valid state
 		&.-valid {
-
 			> .input {
 				border-color: green;
 
-				> input[type=text] { color: green; }
-				> input[type=email] { color: green; }
+				> input[type="text"] {
+					color: green;
+				}
+				> input[type="email"] {
+					color: green;
+				}
 			}
-			
-			> .marker.-success { 
+
+			> .marker.-success {
 				visibility: visible;
 				color: green;
 			}
@@ -115,18 +131,17 @@ $lBrown: lighten(#827262, 38%);
 
 		// error state
 		&.-error {
-			> .icon.-error { color: red; }
+			> .icon.-error {
+				color: red;
+			}
 		}
 	}
 
 	> .submit {
-
 		> .button {
 			width: 100%;
 		}
-
 	}
-
 }
 
 .rules-window {
@@ -151,7 +166,7 @@ $lBrown: lighten(#827262, 38%);
 		width: 100%;
 		list-style: none;
 		padding-inline-start: 0;
-	
+
 		> .item {
 			position: relative;
 			transition: opacity 0.2s;
@@ -161,8 +176,8 @@ $lBrown: lighten(#827262, 38%);
 			text-align: left;
 			font-size: 13px;
 		}
-	
-		>.item.-passed {
+
+		> .item.-passed {
 			opacity: 0.55;
 			text-decoration: line-through;
 		}
