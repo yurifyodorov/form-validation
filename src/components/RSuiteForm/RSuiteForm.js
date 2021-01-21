@@ -1,18 +1,14 @@
 import React from 'react';
 
 import {
-	Form,
 	FormGroup,
-	FormControl,
 	ControlLabel,
-	Input,
 	InputGroup,
 	Icon,
 	IconButton,
-	Tag,
 	Button,
 	ButtonToolbar,
-	Modal
+	Modal,
 } from 'rsuite'
 
 import './RSuiteForm.scss';
@@ -110,39 +106,41 @@ class Textbox extends React.Component {
 						<InputGroup.Addon>
 							<Icon icon={icon} />
 						</InputGroup.Addon>
-						<input {...inputProps} className='rs-input textbox__input' />
+						<input {...inputProps} className='rs-input' />
 					</InputGroup>
 
 					<IconButton
 						size='xs'
-						className='icon -info' 
-						onClick={this.open} 
-						icon={<Icon icon="info" />} 
-						color='blue' 
-						circle 
+						className='marker -info'
+						onClick={this.open}
+						icon={<Icon icon="question" />}
+						color='blue'
+						circle
 					/>
 
 					<IconButton
 						size='xs'
-						className='icon -success'
-						icon={<Icon icon="check-circle" />}
+						className='marker -success'
+						onClick={this.open}
+						icon={<Icon icon="check" />}
 						color='green'
-						circle 
+						circle
 					/>
 
-					
-				
+
+
 				</FormGroup>
 
-				<Modal size='xs' show={this.state.show} onHide={this.close}>
+				<Modal className='rules-window' size='xs' show={this.state.show} onHide={this.close}>
+					<Modal.Header>
+						<Modal.Title>Правила</Modal.Title>
+					</Modal.Header>
 					<Modal.Body>
-						<div className='form__rules'>
-							<Rules
-								conditions={conditions}
-								validate={this.validate}
-								focused={this.state.focused}
-							/>
-						</div>
+						<Rules
+							conditions={conditions}
+							validate={this.validate}
+							focused={this.state.focused}
+						/>
 					</Modal.Body>
 					<Modal.Footer>
 						<Button onClick={this.close} appearance="primary">
@@ -160,22 +158,30 @@ const Rules = ({ conditions, validate, focused }) => (
 		{conditions.map(({ message, test }, index) => (
 			<li
 				key={index}
-				className={`rules__item ${validate(test) ? 'rules__item_passed' : ''}`}>
+				className={`item ${validate(test) ? '-passed' : ''}`}>
 				{ message}
 			</li>
 		))}
 	</ul>
 );
 
-const Submit = ({ valid }) => (
-	<Button
-		valid={valid} disabled={!valid}
-		appearance="primary"
-		type="submit"
-	>
-		Отправить
-	</Button>
-);
+// const Submit = ({ valid }) => (
+// 	<>
+// 		{/* <div>
+// 			{valid
+// 				? <Button appearance="primary" type="submit" disabled={!valid}>Primary</Button>
+// 				: <Button appearance="primary" type="submit">Primary</Button>
+// 			}
+// 		</div> */}
+// 		<Button
+// 			valid={valid} disabled={!valid}
+// 			appearance="primary"
+// 			type="submit"
+// 		>
+// 			Отправить
+// 		</Button>
+// 	</>
+// );
 
 class RSForm extends React.Component {
 	constructor(props) {
@@ -235,21 +241,11 @@ class RSForm extends React.Component {
 				))}
 
 
-				<ButtonToolbar className='form__submit'>
-					<Submit valid={valid} />
-					<div
-						className={`form__success ${submitted ? 'form__success_is-active' : ''}`}
-						role='alert'
-					>
-						Выполняется вход
-					</div>
+				<ButtonToolbar className='submit'>
+					{ valid && !submitted && <Button className='button' appearance="primary" type="submit" valid>Отправить</Button>}
+					{ !valid && !submitted && <Button className='button' appearance="primary" type="submit" disabled>Отправить</Button>}
+					{ submitted && <Button className='button' appearance="primary" type="submit" loading>Отправить</Button>}
 				</ButtonToolbar>
-				<Button
-					appearance="link"
-					onClick={this.open}
-				>
-					Техподдержка
-					</Button>
 			</form>
 		);
 	}
@@ -300,7 +296,7 @@ const inputs = [
 	},
 	{
 		label: 'Email',
-		icon: 'avatar',
+		icon: 'at',
 		conditions: [conditions.mail],
 		type: 'email'
 	}
