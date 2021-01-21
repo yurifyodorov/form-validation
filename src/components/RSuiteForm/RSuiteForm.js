@@ -165,24 +165,6 @@ const Rules = ({ conditions, validate, focused }) => (
 	</ul>
 );
 
-// const Submit = ({ valid }) => (
-// 	<>
-// 		{/* <div>
-// 			{valid
-// 				? <Button appearance="primary" type="submit" disabled={!valid}>Primary</Button>
-// 				: <Button appearance="primary" type="submit">Primary</Button>
-// 			}
-// 		</div> */}
-// 		<Button
-// 			valid={valid} disabled={!valid}
-// 			appearance="primary"
-// 			type="submit"
-// 		>
-// 			Отправить
-// 		</Button>
-// 	</>
-// );
-
 class RSForm extends React.Component {
 	constructor(props) {
 		super(props);
@@ -258,15 +240,15 @@ const testLength = length => ({
 
 const conditions = {
 	containLowercase: {
-		test: value => new RegExp(/[a-z]/).test(value),
+		test: value => new RegExp(/[а-яa-z]/).test(value),
 		message: 'Должен содержать 1 строчный символ'
 	},
 	containUppercase: {
-		test: value => new RegExp(/[A-Z]/).test(value),
+		test: value => new RegExp(/[А-ЯA-Z]/).test(value),
 		message: 'Должен содержать 1 заглавный символ'
 	},
 	startWithUppercase: {
-		test: value => new RegExp(/[A-Z]/).test(value.charAt(0)),
+		test: value => new RegExp(/[А-ЯA-Z]/).test(value.charAt(0)),
 		message: 'Должно начинаться с заглавной буквы'
 	},
 	mail: {

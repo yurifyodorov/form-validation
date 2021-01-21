@@ -33,6 +33,7 @@ $lBrown: lighten(#827262, 38%);
 			transition: all 0.25s ease;
 			transform: translateZ(0);
 			z-index: 2;
+			color: #718096;
 		}
 
 		> .input {
@@ -56,18 +57,18 @@ $lBrown: lighten(#827262, 38%);
 
 		> .marker {
 			position: absolute;
-			top: -10px;
-			right: -6px;
-			width: 20px;
-			height: 20px;
+			top: -12px;
+			right: -8px;
+			width: 22px;
+			height: 22px;
 			border-radius: 50%;
 			z-index: 99;
 			margin: 0;
 			border: 1px solid transparent;
 
 			.rs-icon {
-				width: inherit;
-				height: inherit;
+				width: 20px;
+				height: 20px;
 				padding: 0;
 				color: white;
 				line-height: 20px;
@@ -149,10 +150,6 @@ $lBrown: lighten(#827262, 38%);
 	height: 100vh;
 	margin: 0;
 
-	.rs-modal-title {
-		color: #3498ff;
-	}
-
 	> .rs-modal-dialog {
 		display: flex;
 		flex-direction: column;
@@ -160,6 +157,25 @@ $lBrown: lighten(#827262, 38%);
 		align-items: center;
 		height: inherit;
 		width: inherit;
+
+		> .rs-modal-content {
+			display: grid;
+			grid-template-rows: min-content auto 40px;
+			width: 288px;
+			height: 380px;
+
+			.rs-modal-title {
+				color: #3498ff;
+			}
+
+			.rs-modal-body {
+				margin-top: 15px;
+				margin-bottom: 20px;
+				padding-top: 20px;
+				border-top: 1px solid #eee;
+				border-bottom: 1px solid #eee;
+			} 
+		}
 	}
 
 	.rules {
@@ -172,9 +188,10 @@ $lBrown: lighten(#827262, 38%);
 			transition: opacity 0.2s;
 			color: #827262;
 			transform: translateZ(0);
-			line-height: 2;
+			line-height: 1.5;
 			text-align: left;
 			font-size: 13px;
+			margin-bottom: 15px;
 		}
 
 		> .item.-passed {
