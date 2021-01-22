@@ -12,7 +12,7 @@ import {
 	Modal,
 } from 'rsuite'
 
-import './RSuiteForm.scss';
+import './LoginForm.scss';
 
 class Textbox extends React.Component {
 	constructor(props) {
@@ -107,6 +107,7 @@ class Textbox extends React.Component {
 						<InputGroup.Addon>
 							<Icon icon={icon} />
 						</InputGroup.Addon>
+						{/* TODO: реализовать через <Input /> RSuite */}
 						<input {...inputProps} className='rs-input' />
 					</InputGroup>
 
@@ -127,9 +128,6 @@ class Textbox extends React.Component {
 						color='green'
 						circle
 					/>
-
-
-
 				</FormGroup>
 
 				<Modal className='rules-window' size='xs' show={this.state.show} onHide={this.close}>
@@ -207,7 +205,6 @@ class RSForm extends React.Component {
 		const { valid, submitted } = this.state;
 
 		return (
-			// rs-form form form-rsuite  rs-form-vertical rs-form-fixed-width
 			<form
 				className={`auth-form rs-form rs-form-vertical rs-form-fixed-width ${valid ? 'form_valid' : ''}`}
 				onSubmit={this.submitForm}>
@@ -285,11 +282,11 @@ const inputs = [
 	}
 ];
 
-function RSuiteForm() {
+function LoginForm() {
 
 	return (
 		<RSForm inputs={inputs} />
 	);
 }
 
-export default RSuiteForm;
+export default LoginForm;

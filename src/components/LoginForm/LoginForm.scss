@@ -1,0 +1,192 @@
+// RSCSS
+// see more: https://rscss.io/index.html
+
+@import '../../design-tokens/project-сolors';
+
+// RSuite form style
+.auth-form {
+	background-color: $white;
+	width: 288px;
+	height: 380px;
+	padding: 20px;
+	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.12), 0 0 10px rgba(0, 0, 0, 0.06);
+	text-align: center;
+
+	> .title {
+		font-size: 24px;
+		color: $blue-500;
+	}
+
+	> .field {
+		position: relative;
+		height: 47px;
+
+		> .label {
+			position: absolute;
+			left: 50px;
+			bottom: 9px;
+			font-size: 17px;
+			user-select: none;
+			z-index: 1;
+			transition: all 0.25s ease;
+			transform: translateZ(0);
+			z-index: 2;
+			color: $gray-600;
+		}
+
+		> .input {
+			height: inherit;
+			border-radius: 6px 6px 6px 6px;
+
+			> input { z-index: 1; }
+			> input[type=text],
+			> input[type=email] {
+				color: $black;
+				background: transparent;
+			}
+
+			// Input icon background
+			> .rs-input-group-addon {
+				display: flex;
+				justify-content: center;
+				width: 40px;
+			}
+		}
+
+		> .marker {
+			position: absolute;
+			top: -12px;
+			right: -8px;
+			width: 22px;
+			height: 22px;
+			border-radius: 50%;
+			z-index: 99;
+			margin: 0;
+			border: 1px solid transparent;
+
+			.rs-icon {
+				width: 20px;
+				height: 20px;
+				padding: 0;
+				color: white;
+				line-height: 20px;
+			}
+		}
+
+		> .marker.-info {
+			visibility: visible;
+			cursor: pointer;
+			border: 1px solid $blue-500;
+
+			.rs-icon {
+				font-size: 14px;
+			}
+		}
+
+		> .marker.-success {
+			visibility: hidden;
+		}
+
+		&.-active {
+			> .label {
+				left: 5px;
+				transform: translateY(-30px) scale(0.83);
+				transform-origin: left;
+				line-height: 30px;
+			}
+		}
+
+		// show icons when this state
+		&.-valid,
+		&.-error {
+			> .marker.-info {
+				visibility: hidden;
+			}
+
+			> .marker.-success {
+				border: 1px solid $green-700;
+			}
+		}
+
+		// valid state
+		&.-valid {
+			> .input {
+				border-color: $green-700;
+
+				> input[type=text] {
+					color: $green-700;
+				}
+				> input[type=email] {
+					color: $green-700;
+				}
+			}
+
+			> .marker.-success {
+				visibility: visible;
+				color: $green-700;
+			}
+		}
+	}
+
+	> .submit {
+		> .button {
+			width: 100%;
+		}
+	}
+}
+
+.rules-window {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+
+	> .rs-modal-dialog {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: inherit;
+		width: inherit;
+
+		> .rs-modal-content {
+			display: grid;
+			grid-template-rows: min-content auto 40px;
+			width: 288px;
+			height: 380px;
+
+			.rs-modal-title {
+				color: $primary;
+			}
+
+			.rs-modal-body {
+				margin-top: 15px;
+				margin-bottom: 20px;
+				padding-top: 20px;
+				border-top: 1px solid #eee;
+				border-bottom: 1px solid #eee;
+			} 
+		}
+	}
+
+	.rules {
+		width: 100%;
+		list-style: none;
+		padding-inline-start: 0;
+
+		> .item {
+			position: relative;
+			transition: opacity 0.2s;
+			color: #827262;
+			transform: translateZ(0);
+			line-height: 1.5;
+			text-align: left;
+			font-size: 13px;
+			margin-bottom: 15px;
+		}
+
+		> .item.-passed {
+			opacity: 0.55;
+			text-decoration: line-through;
+		}
+	}
+}
