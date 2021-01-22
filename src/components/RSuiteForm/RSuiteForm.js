@@ -4,6 +4,7 @@ import {
 	FormGroup,
 	ControlLabel,
 	InputGroup,
+	Input,
 	Icon,
 	IconButton,
 	Button,

@@ -1,0 +1,36 @@
+// The colors of the current project are inherited from the color palette
+@import '../../design-tokens/tw-colors-pallete';
+
+
+// RSuite color scheme: https://rsuitejs.com/design/default/
+
+// Primary
+$primary: $blue-500; // tilwind
+$primary-hover: #2589F5; // rsuite
+$primary-focus: #2589F5; // rsuite
+$primary-click: #1675E0; // rsuite
+$primary-disable: #CCE9FF; // rsuite
+$primary-loading: #3498FF; // rsuite
+
+// Default
+$default: #F7F7FA;
+$default-hover: #E5E5EA; // rsuite
+$default-focus: #E5E5EA; // rsuite
+$default-click: #D9D9D9; // rsuite
+$default-disable: #F7F7FA; // rsuite
+$default-loading: #F7F7FA; // rsuite
+
+// Subtitle
+$subtitle: $white;
+$subtitle-hover: #F7F7FA; // rsuite
+$subtitle-focus: #F7F7FA; // rsuite
+$subtitle-click: #E5E5EA; // rsuite
+$subtitle-disable: $white; // tilwind
+$subtitle-loading: $white; // tilwind
+
+
+// State
+$status-info: $blue-500; // tilwind
+$status-succes: $green-700; // tilwind
+$status-warning: #FFC008;
+$status-error: #EB5757;

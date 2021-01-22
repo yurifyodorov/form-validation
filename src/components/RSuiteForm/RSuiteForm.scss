@@ -1,13 +1,11 @@
-$brown: #9e8870;
-$lightBrown: #f0e3db;
-$lBrown: lighten(#827262, 38%);
-
 // RSCSS
 // see more: https://rscss.io/index.html
 
+@import '../../design-tokens/project-сolors';
+
 // RSuite form style
 .auth-form {
-	background-color: #ffffff;
+	background-color: $white;
 	width: 288px;
 	height: 380px;
 	padding: 20px;
@@ -16,7 +14,7 @@ $lBrown: lighten(#827262, 38%);
 
 	> .title {
 		font-size: 24px;
-		color: #3498ff;
+		color: $blue-500;
 	}
 
 	> .field {
@@ -33,7 +31,7 @@ $lBrown: lighten(#827262, 38%);
 			transition: all 0.25s ease;
 			transform: translateZ(0);
 			z-index: 2;
-			color: #718096;
+			color: $gray-600;
 		}
 
 		> .input {
@@ -43,7 +41,7 @@ $lBrown: lighten(#827262, 38%);
 			> input { z-index: 1; }
 			> input[type=text],
 			> input[type=email] {
-				color: black;
+				color: $black;
 				background: transparent;
 			}
 
@@ -78,7 +76,7 @@ $lBrown: lighten(#827262, 38%);
 		> .marker.-info {
 			visibility: visible;
 			cursor: pointer;
-			border: 1px solid #3498ff;
+			border: 1px solid $blue-500;
 
 			.rs-icon {
 				font-size: 14px;
@@ -94,7 +92,6 @@ $lBrown: lighten(#827262, 38%);
 				left: 5px;
 				transform: translateY(-30px) scale(0.83);
 				transform-origin: left;
-				color: $brown;
 				line-height: 30px;
 			}
 		}
@@ -107,33 +104,26 @@ $lBrown: lighten(#827262, 38%);
 			}
 
 			> .marker.-success {
-				border: 1px solid green;
+				border: 1px solid $green-700;
 			}
 		}
 
 		// valid state
 		&.-valid {
 			> .input {
-				border-color: green;
+				border-color: $green-700;
 
-				> input[type="text"] {
-					color: green;
+				> input[type=text] {
+					color: $green-700;
 				}
-				> input[type="email"] {
-					color: green;
+				> input[type=email] {
+					color: $green-700;
 				}
 			}
 
 			> .marker.-success {
 				visibility: visible;
-				color: green;
-			}
-		}
-
-		// error state
-		&.-error {
-			> .icon.-error {
-				color: red;
+				color: $green-700;
 			}
 		}
 	}
@@ -165,7 +155,7 @@ $lBrown: lighten(#827262, 38%);
 			height: 380px;
 
 			.rs-modal-title {
-				color: #3498ff;
+				color: $primary;
 			}
 
 			.rs-modal-body {
